@@ -1,16 +1,16 @@
 import express from 'express';
 import * as dotenv from 'dotenv';
 import cors from 'cors';
-import mongoose from 'mongoose';
+
 import connectDB from './mongoose/connectDB.js';
 import postRoutes from './Routes/data.js';
-import { Resend } from 'resend';
+
 dotenv.config();
 const app = express();
 app.use(cors());
 app.use(express.json({ limit: '50mb' }));
 app.use('/api/v1/post', postRoutes);
-const resend = new Resend('re_a8LnAiV4_AS8FsE2EMoyM4L3dpQFfKqhz');
+
 app.post('/',async (req, res) => {
   try {
     // const {From,TId,To,PickUp,ReturnAt,PickUpAt,Type } = req.body;
